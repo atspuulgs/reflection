@@ -121,11 +121,11 @@ class ReflectionAppThreaded:
             self.__last_result_id = prn_result.id
             if self.__is_gray:
                 self.__send_result(
-                    cv2.cvtColor(self.__scale_cropped_face_image(prn_result.face_texture, 992, 992),
+                    cv2.cvtColor(prn_result.face_texture,
                                  cv2.COLOR_BGR2GRAY), prn_result.face_angle)
             else:
                 self.__send_result(
-                    self.__scale_cropped_face_image(prn_result.face_texture, 992, 992), prn_result.face_angle)
+                    prn_result.face_texture, prn_result.face_angle)
             if os.environ['DEBUG'] == "1":
                 self.__windows_shower.update_window(
                     "face_texture",
